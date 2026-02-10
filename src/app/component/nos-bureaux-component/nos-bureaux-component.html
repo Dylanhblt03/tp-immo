@@ -1,0 +1,47 @@
+<div class="image">
+  <div class="container marge">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="mt-5 titre">Nos bureaux</h1>
+        <div class="trait"></div>
+      </div>
+<div class="col-6 text-end">
+  <h2 class="mt-5 fs-5 fw-bold">
+    TOUTES LES OFFRES
+    <a [routerLink]="['/recherche']">
+      <span><img class="mb-1" src="/right-arrow black.png" alt="fleche droite" /></span>
+    </a>
+  </h2>
+</div>
+    </div>
+
+    <img src="/to-left.png" class="btn-prev" (click)="prev()" alt="Précédent" />
+    <img src="/to-right.png" class="btn-next" (click)="next()" alt="Suivant" />
+
+    <div class="image-position">
+      <img src="/DOTS.png" class="point" alt="Points" />
+    </div>
+
+    @if (offres() && offres().length > 0) {
+      <swiper-container #swiperEl navigation="false" init="false" class="mt-5">
+        @for (swiper of offres(); track swiper.id) {
+          <swiper-slide>
+            <div class="card shadow-sm border-0">
+              <div class="img-container">
+                <img [src]="swiper.photoUrl" [alt]="swiper.libelle" class="card-img-top image-bureau" />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">{{ swiper.libelle }}</h5>
+                <p class="card-text text-orange">{{ swiper.ville }}</p>
+                <p class="card-text text-muted"><strong>{{ swiper.prix }} €</strong></p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-dark w-50 text-center bouton">VOIR</a>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    }
+  </div>
+</div>

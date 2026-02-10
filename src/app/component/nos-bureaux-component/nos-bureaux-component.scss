@@ -1,0 +1,95 @@
+@use '../../../variabes' as var;
+
+.trait {
+  width: 50px;
+  height: 3px;
+  background: var.$orange;
+  margin-bottom: 20px;
+}
+
+.titre {
+  color: var.$orange;
+  font-weight: 400;
+}
+
+.marge {
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.image {
+  background-image: url('/Site bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.text-orange {
+  color: var.$orange;
+}
+
+.card-immobilier {
+  transition: transform 0.3s ease;
+}
+
+.card-immobilier:hover {
+  transform: translateY(-5px);
+}
+
+.img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.bouton {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.image-position {
+  position: absolute;
+  top: 350px;
+  left: -30px;
+  width: 150px;
+  z-index: 1;
+  pointer-events: none;
+  .point {
+    width: 500px;
+    height: auto;
+  }
+}
+
+.btn-prev, .btn-next {
+  position: absolute;
+  top: 55%;
+  width: 45px;
+  z-index: 100;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.btn-prev { left: -60px; }
+.btn-next { right: -60px; }
+
+swiper-container {
+  position: relative;
+  z-index: 2;
+}
+
+::ng-deep {
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
+}
