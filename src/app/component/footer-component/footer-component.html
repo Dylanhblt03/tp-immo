@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row">
       @for (item of articleContact(); track item.id) {
-        <div class="col-md-6 border-end border-white pe-md-5">
+        <div class="col-md-6 border-white border-md-end pe-md-5 mb-5 mb-md-0">
           <h2 class="titre-footer">{{ item.titre }}</h2>
           <div class="trait-orange mb-4"></div>
-          <div class="">
+          <div>
             {{ item.contenu }}
           </div>
           <h2 class="fs-5 mt-5">RUDIGOZ & ASSOCIES, CONSEIL IMMOBILIER.</h2>
@@ -18,27 +18,21 @@
 
         @if (!formSent()) {
           <form #f="ngForm" class="row g-3">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input type="text" [(ngModel)]="contactData.prenom" name="prenom" #prenom="ngModel" class="form-control custom-input" placeholder="Votre prénom" required minlength="3">
-              @if (prenom.invalid && prenom.touched) { <div class="text-danger small">3 caractères min.</div> }
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input type="text" [(ngModel)]="contactData.nom" name="nom" #nom="ngModel" class="form-control custom-input" placeholder="Votre nom" required minlength="3">
-              @if (nom.invalid && nom.touched) { <div class="text-danger small">3 caractères min.</div> }
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input type="text" [(ngModel)]="contactData.telephone" name="telephone" #tel="ngModel" class="form-control custom-input" placeholder="Votre téléphone" required pattern="^[0-9]+$">
-              @if (tel.invalid && tel.touched) { <div class="text-danger small">Chiffres uniquement</div> }
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input type="email" [(ngModel)]="contactData.email" name="email" #email="ngModel" class="form-control custom-input" placeholder="Votre adresse email" required email>
-              @if (email.invalid && email.touched) { <div class="text-danger small">Email invalide</div> }
             </div>
             <div class="col-12">
               <textarea [(ngModel)]="contactData.message" name="message" #msg="ngModel" class="form-control custom-input" rows="3" placeholder="Votre message..." required></textarea>
-              @if (msg.invalid && msg.touched) { <div class="text-danger small">Message requis</div> }
             </div>
-            
             <div class="col-12 mt-3">
               <button type="button" (click)="submitForm()" [disabled]="f.invalid" class="btn-orange-submit bouton fs-6 fw-bolder">ENVOYER</button>
             </div>
@@ -53,22 +47,22 @@
 
     <hr class="mt-5 border-white opacity-100">
 
-    <div class="nav-footer">
-      <a href="#">QUI SOMMES NOUS ?</a>
-      <a href="#">NOTRE MÉTIER</a>
-      <a href="#">NOS OFFRES</a>
-      <a href="#">ACTUALITÉS</a>
-      <a href="#">NOS RÉFÉRENCES</a>
-      <a href="#">NOUS CONTACTER</a>
+    <div class="nav-footer flex-column flex-md-row text-center">
+      <a href="#" class="py-2 py-md-0">QUI SOMMES NOUS ?</a>
+      <a href="#" class="py-2 py-md-0">NOTRE MÉTIER</a>
+      <a href="#" class="py-2 py-md-0">NOS OFFRES</a>
+      <a href="#" class="py-2 py-md-0">ACTUALITÉS</a>
+      <a href="#" class="py-2 py-md-0">NOS RÉFÉRENCES</a>
+      <a href="#" class="py-2 py-md-0">NOUS CONTACTER</a>
     </div>
 
     <hr class="mb-4 border-white opacity-100">
 
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <img src="/real-estate-logo_-construction-logo-design-template-9adc02c5b3399d881983b0add1e21a7c_screen-removebg-preview.png" alt="Logos" class="img-fluid logo" style="max-height: 50px;">
+    <div class="row align-items-center text-center text-md-start">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <img src="/real-estate-logo_-construction-logo-design-template-9adc02c5b3399d881983b0add1e21a7c_screen-removebg-preview.png" alt="Logos" class="img-fluid logo">
       </div>
-      <div class="col-md-8 text-end">
+      <div class="col-md-8 text-center text-md-end">
         <div class="d-inline-flex gap-3 icon">
           <img src="/logo-facebook-icon.png" alt="fb">
           <img src="/linkedin icon.png" alt="li">
@@ -78,12 +72,12 @@
       </div>
     </div>
 
-    <div class="row mt-4 small">
-      <div class="col-md-4">© 2026 | TOUS DROITS RÉSERVÉS</div>
-      <div class="col-md-8 text-end">
-        <span class="me-3">04 72 69 03 03</span>
-        <span class="me-3">47 RUE TRONCHET - LYON 69006</span>
-        <span>CONTACT@RUDIGOZ.COM</span>
+    <div class="row mt-4 small text-center text-md-start">
+      <div class="col-md-4 mb-3 mb-md-0">© 2026 | TOUS DROITS RÉSERVÉS</div>
+      <div class="col-md-8 text-center text-md-end flex-column flex-md-row">
+        <span class="d-block d-md-inline me-md-3">04 72 69 03 03</span>
+        <span class="d-block d-md-inline me-md-3">47 RUE TRONCHET - LYON 69006</span>
+        <span class="d-block d-md-inline">CONTACT@RUDIGOZ.COM</span>
       </div>
     </div>
   </div>

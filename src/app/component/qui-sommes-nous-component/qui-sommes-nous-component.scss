@@ -1,39 +1,28 @@
 @use '../../../variabes' as var;
 
-.color1 {
-  background-color: var.$orange;
-}
-.color2 {
-  background-color: var.$bleuJourner;
-}
-.color3 {
-  background-color: var.$bleuSoirer;
-}
-.color4 {
-  background-color: var.$bleuNuit;
+.color1 { background-color: var.$orange; }
+.color2 { background-color: var.$bleuJourner; }
+.color3 { background-color: var.$bleuSoirer; }
+.color4 { background-color: var.$bleuNuit; }
+
+.bar-fine, .bar-moyenne, .bar-large, .bar-fond {
+  min-height: 300px;
 }
 
-.bar-fine {
-  width: 30px;
-  min-height: 70vh;
-}
-.bar-moyenne {
-  width: 50px;
-  min-height: 70vh;
-}
-.bar-large {
-  width: 80px;
-  min-height: 70vh;
+@media (min-width: 768px) {
+  .bar-fine, .bar-moyenne, .bar-large, .bar-fond {
+    min-height: 600px;
+  }
 }
 
-.bar-fond {
-  min-height: 70vh;
-}
+.bar-fine { width: 30px; }
+.bar-moyenne { width: 50px; }
+.bar-large { width: 80px; }
 
 .image-position {
   position: absolute;
-  right: -30%;
-  width: 100%;
+  right: -250px;
+  width: 1000px;
   z-index: 10;
 }
 
@@ -52,15 +41,28 @@
   left: 360px;
   width: 400px;
   z-index: 9;
-} 
+}
+
 .trait {
-    width: 50px;
-     height: 3px;
-      background: var.$orange;
-       margin-bottom: 20px;
-} .padding {
-    padding-top: -10px;
-} .boutton {
+  width: 50px;
+  height: 3px;
+  background: var.$orange;
+  margin-bottom: 20px;
+}
+
+.padding {
+  padding-top: 0px;
+}
+
+.boutton {
   background-color: var.$orange;
+  color: var.$blanc;
+  border: none;
+  padding: 10px 20px;
+}
+
+.boutton:hover {
+  background-color: var.$orange;
+  opacity: 0.9;
   color: var.$blanc;
 }
