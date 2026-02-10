@@ -29,23 +29,23 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getTypes().subscribe({
-      next: (data) => { console.log('Types reçus'); this.types.set(data); },
-      error: (err) => console.error('Erreur Types:', err)
+      next: (data) => this.types.set(data),
+      error: (err) => console.error(err)
     });
 
     this.service.getVilles().subscribe({
-      next: (data) => { console.log('Villes reçues'); this.villes.set(data); },
-      error: (err) => console.error('Erreur Villes:', err)
+      next: (data) => this.villes.set(data),
+      error: (err) => console.error(err)
     });
 
     this.service.getOffres().subscribe({
-      next: (data) => { console.log('Offres reçues'); this.offres.set(data); },
-      error: (err) => console.error('Erreur Offres:', err)
+      next: (data) => this.offres.set(data),
+      error: (err) => console.error(err)
     });
   }
 
   lancerRecherche(): void {
-    this.rechercheService.rechercher(this.selection);
+    this.rechercheService.rechercher({...this.selection});
     this.router.navigate(['/recherche']);
   }
 }

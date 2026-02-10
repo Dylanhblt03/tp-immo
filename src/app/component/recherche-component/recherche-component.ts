@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RechercheService } from '../../services/recherche-service';
 
@@ -9,11 +9,17 @@ import { RechercheService } from '../../services/recherche-service';
   templateUrl: './recherche-component.html',
   styleUrl: './recherche-component.scss',
 })
-export class RechercheComponent {
+export class RechercheComponent implements OnInit {
   rechercheService = inject(RechercheService);
   
   pageActuelle = signal(1);
   parPage = 6;
+
+  ngOnInit(): void {
+    if (this.rechercheService.resultats().length === 0) {
+      this.rechercheService.rechercher({});
+    }
+  }
 
   offresAffichees = computed(() => {
     let debut = (this.pageActuelle() - 1) * this.parPage;
@@ -25,12 +31,11 @@ export class RechercheComponent {
   );
 
   getImgUrl(url: string): string {
-    if (!url) return 'assets/placeholder-immobilier.jpg';
+    if (!url) return 'images/cozy-dining-room-modern-apartment.jpg';
     return `http://api-immobilier.osengo-tpdwwm-moulins.fr/${url}`;
   }
 
   changerPage(page: number) {
     this.pageActuelle.set(page);
-    window.scrollTo(0, 0);
   }
 }

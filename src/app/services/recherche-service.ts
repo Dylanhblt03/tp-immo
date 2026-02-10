@@ -13,20 +13,21 @@ export class RechercheService {
   rechercher(filtres: any) {
     let params = new HttpParams();
     
-    if (filtres.type) params = params.set('id_type', filtres.type);
-    if (filtres.ville) params = params.set('ville', filtres.ville);
-    if (filtres.budget) params = params.set('prix', filtres.budget);
+    if (filtres.type && filtres.type !== "") {
+      params = params.set('id_type', filtres.type);
+    }
+    if (filtres.ville && filtres.ville !== "") {
+      params = params.set('ville', filtres.ville);
+    }
+    if (filtres.budget && filtres.budget !== "") {
+      params = params.set('prix', filtres.budget);
+    }
 
     this.http.get<any[]>(this.apiUrl, { params }).subscribe({
       next: (data) => {
-        if (Array.isArray(data)) {
-          this.resultats.set(data);
-        } else {
-          this.resultats.set([]);
-        }
+        this.resultats.set(Array.isArray(data) ? data : []);
       },
       error: (err) => {
-        console.error('Erreur API', err);
         this.resultats.set([]);
       }
     });

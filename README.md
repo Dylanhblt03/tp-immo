@@ -1,59 +1,83 @@
-# TpImmo
+Projet TpImmo - Guide de démarrage
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+1. Installation de l'environnement
 
-## Development server
-
-To start a local development server, run:
+Avant de commencer, assure-toi d'avoir Node.js et Angular CLI. Copie cette commande si tu ne l'as pas encore :
 
 ```bash
-ng serve
+npm install -g @angular/cli
+
 ```
+2. Récupérer et Initialiser le dépôt
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Copie ces lignes une par une pour cloner et nettoyer le lien Git :
 
 ```bash
-ng generate component component-name
+git clone https://github.com/VOTRE_DEPOT/tp-immo.git
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
 ```bash
-ng generate --help
+cd tp-immo/
 ```
 
-## Building
+```bash
+rm -rf .git
+```
 
-To build the project run:
+```bash
+git init
+```
+
+3. Installation des dépendances
+
+Cette commande va lire ton fichier package.json et installer tous les modules nécessaires (Bootstrap, Swiper, etc.) :
+
+```bash
+npm install
+```
+
+4. Lancer l'application
+
+Pour démarrer le serveur de développement et ouvrir le projet dans ton navigateur :
+
+```bash
+ng serve --open
+```
+
+Commandes de développement Angular
+
+Créer un nouveau composant
+
+Si tu as besoin de créer la page de détails ou un autre module :
+
+```bash
+ng generate component components/nom-du-composant
+```
+Créer un service
+
+Pour ajouter une nouvelle logique de données :
+
+```bash
+ng generate service services/nom-du-service
+```
+
+Compiler pour la production
+
+Pour générer les fichiers finaux dans le dossier dist/ :
+
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Structure Technique du Projet :
 
-## Running unit tests
+Framework : Angular 18+ 
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+État : Angular Signals 
 
-```bash
-ng test
-```
+Styles : SCSS & Bootstrap 5 
 
-## Running end-to-end tests
+API : http://api-immobilier.osengo-tpdwwm-moulins.fr/documentation.php
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

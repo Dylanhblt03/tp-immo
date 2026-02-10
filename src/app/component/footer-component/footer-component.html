@@ -34,7 +34,7 @@
               <textarea [(ngModel)]="contactData.message" name="message" #msg="ngModel" class="form-control custom-input" rows="3" placeholder="Votre message..." required></textarea>
             </div>
             <div class="col-12 mt-3">
-              <button type="button" (click)="submitForm()" [disabled]="f.invalid" class="btn-orange-submit bouton fs-6 fw-bolder">ENVOYER</button>
+              <button type="button" (click)="submitForm()" [disabled]="f.invalid" class="btn-orange-submit bouton fs-6 fw-bolder bouton ">ENVOYER</button>
             </div>
           </form>
         } @else {
