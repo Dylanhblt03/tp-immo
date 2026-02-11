@@ -37,9 +37,9 @@ export class NosBureauxComponent implements OnInit {
   }
 
   private initSwiper() {
-    const swiperEl = this.swiperRef?.nativeElement;
+    let swiperEl = this.swiperRef?.nativeElement;
     if (swiperEl) {
-      const params = {
+      let params = {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,

@@ -6,7 +6,6 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  // On appelle l'URL de login
   fetchJwtToken() {
     return this.http.get<{ token: string }>('http://api-immobilier.osengo-tpdwwm-moulins.fr/jwt-login.php').pipe(
       tap((response) => {
